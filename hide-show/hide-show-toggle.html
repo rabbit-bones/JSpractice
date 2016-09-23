@@ -1,7 +1,7 @@
 <html>
 <head>
 <title>name of page</title>
-<style src="hide-show-toggle.css"></style>
+<link rel="stylesheet" type="text/css" href="hide-show-toggle.css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 </head>
 <body>
@@ -19,23 +19,23 @@ $(document).ready(function() {
 
     var getId = ($(this).attr('id'));
     var chooseContent = '#' + getId + '_content';
-    var addClass = chooseContent.className;
+    var contentClass = $(chooseContent).attr('class');
 
     console.log(getId);
     console.log(chooseContent);
-    console.log(addClass);
+    console.log(contentClass);
 
     e.stopPropagation();
 
-    if (addClass === 'hide_content') {
+    if ( contentClass === 'hide_content') {
 
-      $(chooseContent).addClass('.show_content');
-      $(chooseContent).removeClass('.hide_content')
+      $(chooseContent).addClass('show_content');
+      $(chooseContent).removeClass('hide_content');
 
     } else {
 
-      $(chooseContent).addClass('.hide_content');
-      $(chooseContent).removeClass('.show_content');
+      $(chooseContent).addClass('hide_content');
+      $(chooseContent).removeClass('show_content');
 
     }
 
