@@ -1,0 +1,47 @@
+<html>
+<head>
+<title>name of page</title>
+<style src="hide-show-toggle.css"></style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+</head>
+<body>
+<div class="wrap_choice">
+<p id="no" class="trigger">No</p>
+<p id="no_content" class="hide_content">this is the text when the answer is no</p>
+<p id="yes" class="trigger">Yes</p>
+<p id="yes_content" class="hide_content">this is the text when the answer is yes</p>
+</div>
+<script>
+
+$(document).ready(function() {
+
+  $('.trigger').click(function(e){
+
+    var getId = ($(this).attr('id'));
+    var chooseContent = '#' + getId + '_content';
+    var addClass = chooseContent.className;
+
+    console.log(getId);
+    console.log(chooseContent);
+    console.log(addClass);
+
+    e.stopPropagation();
+
+    if (addClass === 'hide_content') {
+
+      $(chooseContent).addClass('.show_content');
+      $(chooseContent).removeClass('.hide_content')
+
+    } else {
+
+      $(chooseContent).addClass('.hide_content');
+      $(chooseContent).removeClass('.show_content');
+
+    }
+
+  });
+
+});
+</script>
+</body>
+</html>
