@@ -27,12 +27,28 @@ $(document).ready(function() {
 
     e.stopPropagation();
 
+    //if ( contentClass === 'hide_content' && chooseContent !== "yes")
+
+  //  $(chooseContent).addClass('show_content');
+  //  $(chooseContent).removeClass('hide_content');
+  //  $('#no').addClass('hide_content');
+
+//    } else if ( contentClass === 'hide_content' && chooseContent !== "no")
+
+  //  $(chooseContent).addClass('show_content');
+  //  $(chooseContent).removeClass('hide_content');
+  //  $('#yes').addClass('hide_content');
+
+//    } else
+
     if ( contentClass === 'hide_content') {
 
       $(chooseContent).addClass('show_content');
       $(chooseContent).removeClass('hide_content');
 
-    } else {
+    }
+
+    else {
 
       $(chooseContent).addClass('hide_content');
       $(chooseContent).removeClass('show_content');
