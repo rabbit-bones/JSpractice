@@ -5,6 +5,9 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 </head>
 <body>
+
+  <p id="lp" class="trigger">LP</p>
+  <p id="lp_content" class="hide_content">This is the content for LP</p>
 <div class="wrap_choice">
 <p id="no" class="trigger">No</p>
 <p id="no_content" class="hide_content">this is the text when the answer is no</p>
@@ -18,40 +21,35 @@ $(document).ready(function() {
   $('.trigger').click(function(e){
 
     var getId = ($(this).attr('id'));
+    var chooseId = '#' + getId;
     var chooseContent = '#' + getId + '_content';
     var contentClass = $(chooseContent).attr('class');
 
-    console.log(getId);
-    console.log(chooseContent);
-    console.log(contentClass);
-
     e.stopPropagation();
 
-    //if ( contentClass === 'hide_content' && chooseContent !== "yes")
+    if ( contentClass === 'hide_content' && getId !== "yes" && getId !== "no") {
 
-  //  $(chooseContent).addClass('show_content');
-  //  $(chooseContent).removeClass('hide_content');
-  //  $('#no').addClass('hide_content');
+    $(chooseContent).addClass('show_content');
+    $(chooseContent).removeClass('hide_content');
 
-//    } else if ( contentClass === 'hide_content' && chooseContent !== "no")
+    } else if ( contentClass === 'hide_content' && getId === "yes") {
 
-  //  $(chooseContent).addClass('show_content');
-  //  $(chooseContent).removeClass('hide_content');
-  //  $('#yes').addClass('hide_content');
+    $(chooseContent).addClass('show_content');
+    $(chooseContent).removeClass('hide_content');
+    $('#no').addClass('hide_content');
 
-//    } else
+    } else if ( contentClass === 'hide_content' && getId === "no") {
 
-    if ( contentClass === 'hide_content') {
+    $(chooseContent).addClass('show_content');
+    $(chooseContent).removeClass('hide_content');
+    $('#yes').addClass('hide_content');
 
-      $(chooseContent).addClass('show_content');
-      $(chooseContent).removeClass('hide_content');
-
-    }
-
-    else {
+    } else {
 
       $(chooseContent).addClass('hide_content');
       $(chooseContent).removeClass('show_content');
+      $('#yes').removeClass('hide_content');
+      $('#no').removeClass('hide_content');
 
     }
 
